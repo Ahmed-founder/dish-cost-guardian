@@ -56,7 +56,7 @@ function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "border-b border-hairline bg-base/70 backdrop-blur-xl" : "border-b border-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "border-b border-hairline bg-paper/70 backdrop-blur-xl" : "border-b border-transparent"}`}>
       <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 lg:px-6" aria-label="التنقل الرئيسي">
         <Brand />
         <div className="hidden items-center gap-8 md:flex">
@@ -75,7 +75,7 @@ function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[60] md:hidden" role="dialog" aria-modal="true" aria-label="قائمة التنقل">
           <button className="absolute inset-0 bg-ink/20 backdrop-blur-sm" onClick={() => setOpen(false)} aria-label="إغلاق القائمة" />
-          <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-y-0 start-0 w-[82%] max-w-sm bg-base p-6 shadow-panel">
+          <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-y-0 start-0 w-[82%] max-w-sm bg-paper p-6 shadow-panel">
             <div className="flex items-center justify-between"><Brand /><Button variant="ghost" size="icon" aria-label="إغلاق القائمة" onClick={() => setOpen(false)}><X size={20} /></Button></div>
             <div className="mt-12 flex flex-col divide-y divide-hairline">
               {links.map((link) => <a key={link} href="#" className="py-4 text-base text-ink" onClick={() => setOpen(false)}>{link}</a>)}
@@ -101,7 +101,7 @@ const stats = [
 
 function DashboardSidebar() {
   return (
-    <aside className="hidden w-52 shrink-0 border-e border-hairline bg-base p-4 md:block">
+    <aside className="hidden w-52 shrink-0 border-e border-hairline bg-paper p-4 md:block">
       <button className="flex w-full items-center justify-between rounded-ui border border-hairline px-3 py-2.5 text-[13px] font-medium text-ink">
         فرع الرياض <CaretDown size={13} />
       </button>
@@ -120,7 +120,7 @@ function DashboardSidebar() {
 function AreaChart() {
   const reduced = useReducedMotion();
   return (
-    <div className="min-w-0 rounded-ui border border-hairline bg-base p-4 md:col-span-3">
+    <div className="min-w-0 rounded-ui border border-hairline bg-paper p-4 md:col-span-3">
       <div className="mb-4 flex items-center justify-between"><h3 className="text-[13px] font-medium text-ink">تكلفة الطعام مقابل المبيعات</h3><span className="font-latin text-[10px] text-muted">SAR</span></div>
       <svg viewBox="0 0 620 180" className="h-[150px] w-full overflow-visible" role="img" aria-label="رسم تكلفة الطعام خلال سبعة أيام">
         <defs><linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="var(--brand)" stopOpacity=".22"/><stop offset="100%" stopColor="var(--brand)" stopOpacity="0"/></linearGradient></defs>
@@ -137,7 +137,7 @@ function AreaChart() {
 function StockTable() {
   const rows = [["صدر دجاج","12 كجم","منخفض",false],["طماطم","30 كجم","متوفر",true],["خبز صامولي","140 حبة","متوفر",true],["زيت قلي","8 لتر","منخفض",false]] as const;
   return (
-    <div className="min-w-0 rounded-ui border border-hairline bg-base p-4 md:col-span-2">
+    <div className="min-w-0 rounded-ui border border-hairline bg-paper p-4 md:col-span-2">
       <h3 className="mb-3 text-[13px] font-medium text-ink">أصناف تحت الحد الأدنى</h3>
       <div className="grid grid-cols-[1.3fr_.8fr_.8fr] border-b border-hairline pb-2 text-[10px] text-muted"><span>الصنف</span><span>الكمية</span><span>الحالة</span></div>
       {rows.map(([name, amount, status, okay]) => <div key={name} className="grid grid-cols-[1.3fr_.8fr_.8fr] items-center border-b border-hairline py-2.5 text-[11px] last:border-0"><span className="truncate text-ink">{name}</span><span className="font-latin text-muted">{amount}</span><span><span className={`inline-flex rounded-ui px-1.5 py-1 text-[10px] ${okay ? "bg-success-soft text-success" : "bg-danger-soft text-danger"}`}>{status}</span></span></div>)}
@@ -152,10 +152,10 @@ function Dashboard() {
       <div className="min-w-0 flex-1 p-3 sm:p-5">
         <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-base font-bold text-ink">لوحة التحكم</h2>
-          <div className="flex w-fit rounded-ui bg-surface p-1 text-[10px] text-muted sm:text-[11px]"><span className="rounded-ui border border-hairline bg-base px-2.5 py-1 text-ink">اليوم</span><span className="px-2.5 py-1">هذا الأسبوع</span><span className="px-2.5 py-1">الشهر</span></div>
+          <div className="flex w-fit rounded-ui bg-surface p-1 text-[10px] text-muted sm:text-[11px]"><span className="rounded-ui border border-hairline bg-paper px-2.5 py-1 text-ink">اليوم</span><span className="px-2.5 py-1">هذا الأسبوع</span><span className="px-2.5 py-1">الشهر</span></div>
         </div>
         <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
-          {stats.map(([label, value], index) => <div key={label} className="min-w-0 rounded-ui border border-hairline bg-base p-3"><div className="truncate text-[10px] text-muted sm:text-xs">{label}</div><div className="mt-2 flex flex-wrap items-center gap-1.5 font-latin text-[15px] font-medium text-ink sm:text-[20px]"><span>{value}</span>{index === 1 && <span className="rounded-ui bg-success-soft px-1.5 py-0.5 text-[9px] text-success">↓ 2.1%</span>}</div></div>)}
+          {stats.map(([label, value], index) => <div key={label} className="min-w-0 rounded-ui border border-hairline bg-paper p-3"><div className="truncate text-[10px] text-muted sm:text-xs">{label}</div><div className="mt-2 flex flex-wrap items-center gap-1.5 font-latin text-[15px] font-medium text-ink sm:text-[20px]"><span>{value}</span>{index === 1 && <span className="rounded-ui bg-success-soft px-1.5 py-0.5 text-[9px] text-success">↓ 2.1%</span>}</div></div>)}
         </div>
         <div className="mt-3 grid gap-3 md:grid-cols-5"><AreaChart /><StockTable /></div>
       </div>
@@ -166,9 +166,9 @@ function Dashboard() {
 function InvoiceCard() {
   const reduced = useReducedMotion();
   return (
-    <motion.div animate={reduced ? undefined : { y: [0, -6, 0, 6, 0] }} transition={{ repeat: Infinity, duration: 6.5, ease: "easeInOut" }} className="glass-card relative w-full p-4 lg:absolute lg:-start-10 lg:top-16 lg:w-[258px]">
+    <motion.div animate={reduced ? false : { y: [0, -6, 0, 6, 0] }} transition={{ repeat: Infinity, duration: 6.5, ease: "easeInOut" }} className="glass-card relative w-full p-4 lg:absolute lg:-start-10 lg:top-16 lg:w-[258px]">
       <div className="flex items-center gap-2 text-xs font-medium text-ink"><Sparkle size={16} className="text-brand" weight="bold" />قراءة فاتورة المورد<span className="rounded-ui bg-brand-soft px-1.5 py-0.5 font-latin text-[9px] font-bold text-brand">AI</span></div>
-      <div className="relative mt-3 h-24 overflow-hidden rounded-ui border border-hairline bg-base p-3">
+      <div className="relative mt-3 h-24 overflow-hidden rounded-ui border border-hairline bg-paper p-3">
         <div className="space-y-2">{["w-16","w-full","w-4/5","w-2/3","w-full"].map((w,i) => <div key={i} className={`h-1.5 rounded-full bg-surface ${w}`} />)}</div>
         <motion.span initial={reduced ? false : { top: "8%" }} animate={reduced ? { top: "55%" } : { top: ["8%","88%","8%"] }} transition={{ repeat: Infinity, duration: 3.2, ease: "easeInOut" }} className="scan-line absolute inset-x-2 h-px bg-brand" />
       </div>
@@ -181,17 +181,17 @@ function InvoiceCard() {
 
 function AutomationToast() {
   const reduced = useReducedMotion();
-  return <motion.div initial={reduced ? false : { opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 1, duration: .55 }} animate={reduced ? undefined : { y: [0, 5, 0, -5, 0] }} className="glass-card flex w-full items-start gap-3 p-4 lg:absolute lg:-end-7 lg:bottom-12 lg:w-[272px]"><CheckCircle size={21} className="mt-0.5 shrink-0 text-success" weight="bold"/><div><p className="text-[12px] leading-5 text-ink">تم خصم مكونات 42 طبق من المخزون تلقائياً</p><p className="mt-1 font-latin text-[10px] text-muted">قبل ثانيتين</p></div></motion.div>;
+  return <motion.div initial={reduced ? false : { opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 1, duration: .55 }} animate={reduced ? false : { y: [0, 5, 0, -5, 0] }} className="glass-card flex w-full items-start gap-3 p-4 lg:absolute lg:-end-7 lg:bottom-12 lg:w-[272px]"><CheckCircle size={21} className="mt-0.5 shrink-0 text-success" weight="bold"/><div><p className="text-[12px] leading-5 text-ink">تم خصم مكونات 42 طبق من المخزون تلقائياً</p><p className="mt-1 font-latin text-[10px] text-muted">قبل ثانيتين</p></div></motion.div>;
 }
 
 function SupplyCard() {
   const reduced = useReducedMotion();
-  return <motion.div animate={reduced ? undefined : { y: [0, 6, 0, -6, 0] }} transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut" }} className="glass-card absolute -end-8 top-[45%] hidden w-[225px] p-3 lg:block"><div className="flex items-center justify-between gap-2 text-[10px] text-ink"><span>المطبخ المركزي</span><span className="relative h-px flex-1 border-t border-dashed border-muted/40"><motion.i animate={reduced ? undefined : { insetInlineStart: ["0%","90%"] }} transition={{ repeat: Infinity, duration: 2.2, ease: "linear" }} className="absolute -top-1 size-2 rounded-full bg-brand shadow-brand" /></span><span>فرع جدة</span></div><span className="mt-2 inline-flex rounded-ui bg-brand-soft px-1.5 py-1 text-[9px] text-brand">قيد التجهيز</span></motion.div>;
+  return <motion.div animate={reduced ? false : { y: [0, 6, 0, -6, 0] }} transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut" }} className="glass-card absolute -end-8 top-[45%] hidden w-[225px] p-3 lg:block"><div className="flex items-center justify-between gap-2 text-[10px] text-ink"><span>المطبخ المركزي</span><span className="relative h-px flex-1 border-t border-dashed border-muted/40"><motion.i animate={reduced ? false : { insetInlineStart: ["0%","90%"] }} transition={{ repeat: Infinity, duration: 2.2, ease: "linear" }} className="absolute -top-1 size-2 rounded-full bg-brand shadow-brand" /></span><span>فرع جدة</span></div><span className="mt-2 inline-flex rounded-ui bg-brand-soft px-1.5 py-1 text-[9px] text-brand">قيد التجهيز</span></motion.div>;
 }
 
 function CostCard() {
   const reduced = useReducedMotion();
-  return <motion.div animate={reduced ? undefined : { y: [0, -5, 0, 5, 0] }} transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }} className="glass-card absolute -start-5 bottom-8 hidden w-[190px] p-3 lg:block"><p className="text-[10px] text-muted">تكلفة طبق · برجر كلاسيك</p><p className="mt-1.5 font-latin text-[13px] font-medium text-ink">9.80 ر.س · <span className="text-success">هامش 67%</span></p></motion.div>;
+  return <motion.div animate={reduced ? false : { y: [0, -5, 0, 5, 0] }} transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }} className="glass-card absolute -start-5 bottom-8 hidden w-[190px] p-3 lg:block"><p className="text-[10px] text-muted">تكلفة طبق · برجر كلاسيك</p><p className="mt-1.5 font-latin text-[13px] font-medium text-ink">9.80 ر.س · <span className="text-success">هامش 67%</span></p></motion.div>;
 }
 
 function ProductMockup() {
@@ -202,8 +202,8 @@ function ProductMockup() {
   const opacity = useTransform(scrollYProgress, [0, .16], reduced ? [1, 1] : [.9, 1]);
   return (
     <div className="relative mx-auto mt-16 w-full max-w-[1120px] px-1 sm:px-5 lg:px-0" style={{ perspective: "1600px" }}>
-      <motion.div style={{ rotateX, scale, opacity, transformOrigin: "top center" }} className="browser-frame overflow-hidden border border-hairline bg-base">
-        <div className="relative flex h-10 items-center justify-center border-b border-hairline bg-base">
+      <motion.div style={{ rotateX, scale, opacity, transformOrigin: "top center" }} className="browser-frame overflow-hidden border border-hairline bg-paper">
+        <div className="relative flex h-10 items-center justify-center border-b border-hairline bg-paper">
           <div className="absolute start-3 flex gap-1.5" dir="ltr"><span className="size-2.5 rounded-full bg-dot"/><span className="size-2.5 rounded-full bg-dot"/><span className="size-2.5 rounded-full bg-dot"/></div>
           <div className="rounded-full border border-hairline bg-canvas px-5 py-1 font-mono text-[10px] text-muted sm:text-xs">app.[brand].sa</div>
         </div>
@@ -229,7 +229,7 @@ export function RestaurantHero() {
       <section className="relative mx-auto px-4 pb-24 pt-[120px] sm:px-6 lg:pb-32">
         <div className="hero-glow pointer-events-none absolute start-1/2 top-[520px] -translate-x-1/2" />
         <div className="relative mx-auto max-w-[880px] text-center">
-          <motion.a href="#" whileHover={{ y: -2 }} className="inline-flex max-w-full items-center gap-2 rounded-full border border-hairline bg-base/70 px-3 py-1.5 text-[12px] text-ink backdrop-blur-md sm:text-[13px]"><span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-bold text-base">جديد</span><span className="truncate">اقرأ فواتير الموردين بالذكاء الاصطناعي</span><ArrowLeft size={14} /></motion.a>
+          <motion.a href="#" whileHover={{ y: -2 }} className="inline-flex max-w-full items-center gap-2 rounded-full border border-hairline bg-paper/70 px-3 py-1.5 text-[12px] text-ink backdrop-blur-md sm:text-[13px]"><span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-bold text-paper">جديد</span><span className="truncate">اقرأ فواتير الموردين بالذكاء الاصطناعي</span><ArrowLeft size={14} /></motion.a>
           <div className="mt-7"><HeroWords /></div>
           <p className="mx-auto mt-6 max-w-[620px] text-[16px] leading-[1.8] text-muted sm:text-lg">نظام عربي لإدارة المخزون والوصفات والمطبخ المركزي والمشتريات لكل فروعك — يحسب تكلفة كل طبق، ويقرأ فواتير الموردين بالذكاء الاصطناعي، ويشتغل جنب نظام الكاشير حقك.</p>
           <div className="mx-auto mt-8 flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row">
