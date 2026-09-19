@@ -26,8 +26,21 @@ import {
 } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import {
+  CtaSection,
+  FaqSection,
+  FeaturesSection,
+  HowItWorksSection,
+  PricingSection,
+  SiteFooter,
+} from "@/components/landing-sections";
 
-const links = ["المميزات", "الأسعار", "كيف يعمل", "الأسئلة الشائعة"];
+const links = [
+  { label: "المميزات", href: "#features" },
+  { label: "الأسعار", href: "#pricing" },
+  { label: "كيف يعمل", href: "#how-it-works" },
+  { label: "الأسئلة الشائعة", href: "#faq" },
+];
 const headline = [
   { text: "اعرف وين يروح كل ريال", weight: "font-light" },
   { text: "في مطبخـــك", weight: "font-bold" },
@@ -61,7 +74,7 @@ function Navbar() {
         <Brand />
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a key={link} href="#" className="text-sm text-muted transition-colors hover:text-ink">{link}</a>
+            <a key={link.href} href={link.href} className="text-sm text-muted transition-colors hover:text-ink">{link.label}</a>
           ))}
         </div>
         <div className="hidden items-center gap-5 md:flex">
@@ -78,7 +91,7 @@ function Navbar() {
           <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-y-0 start-0 w-[82%] max-w-sm bg-paper p-6 shadow-panel">
             <div className="flex items-center justify-between"><Brand /><Button variant="ghost" size="icon" aria-label="إغلاق القائمة" onClick={() => setOpen(false)}><X size={20} /></Button></div>
             <div className="mt-12 flex flex-col divide-y divide-hairline">
-              {links.map((link) => <a key={link} href="#" className="py-4 text-base text-ink" onClick={() => setOpen(false)}>{link}</a>)}
+              {links.map((link) => <a key={link.href} href={link.href} className="py-4 text-base text-ink" onClick={() => setOpen(false)}>{link.label}</a>)}
             </div>
             <div className="mt-8 grid gap-3"><Button variant="hero" size="hero">ابدأ مجاناً</Button><Button variant="heroOutline" size="hero">تسجيل الدخول</Button></div>
           </motion.div>
@@ -240,6 +253,12 @@ export function RestaurantHero() {
         </div>
         <ProductMockup />
       </section>
+      <FeaturesSection />
+      <HowItWorksSection />
+      <PricingSection />
+      <FaqSection />
+      <CtaSection />
+      <SiteFooter />
     </main>
   );
 }
