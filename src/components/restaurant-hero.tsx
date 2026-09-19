@@ -26,6 +26,14 @@ import {
 } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import {
+  CtaSection,
+  FaqSection,
+  FeaturesSection,
+  HowItWorksSection,
+  PricingSection,
+  SiteFooter,
+} from "@/components/landing-sections";
 
 const links = [
   { label: "المميزات", href: "#features" },
@@ -245,6 +253,12 @@ export function RestaurantHero() {
         </div>
         <ProductMockup />
       </section>
+      <FeaturesSection />
+      <HowItWorksSection />
+      <PricingSection />
+      <FaqSection />
+      <CtaSection />
+      <SiteFooter />
     </main>
   );
 }
