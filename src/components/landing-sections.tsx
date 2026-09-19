@@ -351,7 +351,7 @@ export function CtaSection() {
     <section className="relative mx-auto max-w-[1200px] px-5 py-20 lg:px-6 lg:py-28">
       <Reveal>
         <div className="relative overflow-hidden rounded-[var(--radius-panel)] border border-hairline bg-ink px-6 py-16 text-center sm:px-12">
-          <div className="hero-glow pointer-events-none absolute start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-60" />
+          <div className="hero-glow pointer-events-none absolute inset-x-0 top-1/2 mx-auto -translate-y-1/2 opacity-60" />
           <div className="relative">
             <span className="inline-flex items-center gap-2 rounded-full border border-paper/15 px-3 py-1 text-[12px] text-paper/70">
               <Sparkle size={13} weight="bold" className="text-brand" />

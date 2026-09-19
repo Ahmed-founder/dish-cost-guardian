@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         hero: "rounded-full bg-ink text-paper shadow-hero transition-[transform,box-shadow] hover:-translate-y-px hover:shadow-hero-hover",
         heroOutline:
-          "rounded-full border border-hairline bg-base text-ink transition-[transform,background-color] hover:-translate-y-px hover:bg-canvas",
+          "rounded-full border border-hairline bg-paper text-ink transition-[transform,background-color] hover:-translate-y-px hover:bg-canvas",
         nav: "rounded-full bg-ink text-paper hover:bg-ink/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
