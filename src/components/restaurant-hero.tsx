@@ -27,7 +27,12 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-const links = ["المميزات", "الأسعار", "كيف يعمل", "الأسئلة الشائعة"];
+const links = [
+  { label: "المميزات", href: "#features" },
+  { label: "الأسعار", href: "#pricing" },
+  { label: "كيف يعمل", href: "#how-it-works" },
+  { label: "الأسئلة الشائعة", href: "#faq" },
+];
 const headline = [
   { text: "اعرف وين يروح كل ريال", weight: "font-light" },
   { text: "في مطبخـــك", weight: "font-bold" },
